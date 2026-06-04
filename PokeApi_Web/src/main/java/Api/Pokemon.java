@@ -8,6 +8,7 @@ public class Pokemon {
     private int height;
     private List<PokemonStat> stats;
     private List<PokemonType> types;
+    private PokemonSprites sprites;
 
     public Pokemon(){
     }
@@ -29,5 +30,9 @@ public class Pokemon {
 
     public List<PokemonType> getTypes() {
         return types;
+    }
+
+    public PokemonSprites getSprites() {
+        return sprites;
     }
 }
