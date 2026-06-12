@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeApi Web</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<main class="main-content">
+
+    <h1 class="main-title">PokeApi Web</h1>
+
+    <div class="search-wrapper">
+        <form action="/" method="get" class="search-container">
+            <input type="text" name="nombre" placeholder="Busca un Pokémon..." autocomplete="off">
+        </form>
+    </div>
+
+    <div th:if="${error}" class="alert-error">
+        <p th:text="${error}"></p>
+    </div>
+
+    <div th:if="${pokemon != null}" class="single-pokemon-view">
+        <div class="pokemon-card single-card">
+            <span class="pokemon-id" th:text="'Nº ' + ${pokemon.id}"></span>
+            <div class="img-wrapper">
+                <img th:src="${pokemon.sprites.frontDefault}" th:alt="${pokemon.name}">
+            </div>
+            <h2 class="pokemon-name" th:text="${pokemon.name}"></h2>
+            <p class="pokemon-types-text">
+                <span th:each="t : ${pokemon.types}" th:text="${t.type.name}" class="type-badge"></span>
+            </p>
+            <button class="detail-btn">Ver Detalle</button>
+        </div>
+
+        <div class="stats-panel">
+            <h3 class="stats-title">Estadísticas Base</h3>
+            <div class="stats-list">
+                <div th:each="s : ${pokemon.stats}" class="stat-item">
+                    <span class="stat-name" th:text="${s.stat.name.toUpperCase()}"></span>
+                    <span class="stat-number" th:text="${s.baseStat}"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:if="${pokemon == null && error == null}" class="all-pokemons-section">
+
+        <hr class="section-divider">
+        <h2 class="subtitle">Todos los Pokémons</h2>
+
+        <div class="pokemon-grid">
+            <div th:each="p : ${listaPokemons}" class="pokemon-card grid-card">
+                <span class="pokemon-id" th:text="'Nº ' + ${p.id}"></span>
+                <div class="img-wrapper">
+                    <img th:src="${p.sprites.frontDefault}" th:alt="${p.name}">
+                </div>
+                <h2 class="pokemon-name" th:text="${p.name}"></h2>
+                <p class="pokemon-types-text">
+                    <span th:each="t : ${p.types}" th:text="${t.type.name}" class="type-badge"></span>
+                </p>
+                <button class="detail-btn">Ver Detalle</button>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

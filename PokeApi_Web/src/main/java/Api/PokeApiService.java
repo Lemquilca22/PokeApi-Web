@@ -5,8 +5,11 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PokeApiService {
+
     // Este método recibirá el nombre del pokémon y nos devolverá el JSON en texto plano
     public Pokemon obtenerPokemon(String nombrePokemon) {
 
@@ -31,5 +34,26 @@ public class PokeApiService {
             System.out.println("Error detectado al conectar con la PokeAPI: "+ e.getMessage());
             return null;
         }
+    }
+
+    // NUEVO MÉTODO: Este bucle generará la colección de pokémons para la cuadrícula inferior
+    public List<Pokemon> obtenerPrimerosPokemons(int cantidad) {
+        // Crea lista vacia
+        List<Pokemon> lista = new ArrayList<>();
+
+        for (int i = 1; i <= cantidad; i++) {
+            try {
+                // Convertimos el número actual del bucle (i) a String
+                Pokemon p = this.obtenerPokemon(String.valueOf(i));
+
+                if (p != null) {
+                    lista.add(p);
+                }
+            } catch (Exception e) {
+                System.out.println("No se pudo meter al archivo el pokémon con ID: " + i);
+            }
+        }
+
+        return lista;
     }
 }

@@ -1,0 +1,187 @@
+/* ==========================================
+   1. ESTILOS GENERALES Y FONDO AMISTOSO
+   ========================================== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: #1e222b;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    max-width: 1200px; /* Evita que la cuadrícula se estire al infinito en pantallas gigantes */
+    margin: 0 auto;
+}
+
+.main-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+/* ==========================================
+   CUERPO
+   ========================================== */
+.search-wrapper {
+    width: 100%;
+    max-width: 550px; /* Un pelín más ancho para acompañar las nuevas tarjetas */
+    margin-bottom: 50px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 16px 24px;
+    background-color: #2b303c; /* Fondo del input a juego con el nuevo tono de la web */
+    border: 2px solid #3f4756;
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    outline: none;
+    text-align: center;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-container input:focus {
+    border-color: #3b4cca; /* Azul sutil de enfoque */
+    box-shadow: 0 0 10px rgba(59, 76, 202, 0.3);
+}
+
+/* Elementos de separación */
+.section-divider {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background-color: #2d323f;
+    margin: 20px 0 40px 0;
+}
+
+.subtitle {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 35px;
+    color: #cbd5e1;
+}
+
+/* ==========================================
+   TARJETAS (MÁS AMPLIAS)
+   ========================================== */
+
+/* Contenedor cuando buscas un solo Pokémon */
+.single-pokemon-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Tarjeta Base (Se aplica tanto a la individual como a las de la cuadrícula) */
+.pokemon-card {
+    background-color: #252a34; /* Tarjeta ligeramente más clara que el fondo para crear contraste */
+    border-radius: 20px;
+    padding: 35px 30px; /* Más padding interno para que respire hacia los lados */
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    border: 1px solid #333a48;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s, border-color 0.2s;
+    width: 100%;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-5px);
+    border-color: #475266;
+}
+
+.pokemon-id {
+    position: absolute;
+    top: 18px;
+    left: 25px;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-family: monospace;
+}
+
+/* Contenedor de la imagen del Pokémon */
+.img-wrapper {
+    background-color: #e2f1ed; /* Fondo claro suave para que la ilustración destaque */
+    border-radius: 16px;
+    padding: 16px;
+    display: inline-block;
+    margin-top: 10px;
+    border: 1px solid #cbd5e1;
+}
+
+.img-wrapper img {
+    width: 130px;
+    height: 130px;
+    display: block;
+}
+
+.pokemon-name {
+    margin: 22px 0 12px 0;
+    font-size: 1.9rem;
+    text-transform: lowercase;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+/* Etiquetas de tipo */
+.type-badge {
+    background-color: #333a48;
+    color: #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0 5px;
+    display: inline-block;
+}
+
+/* Botón "Ver Detalle" */
+.detail-btn {
+    margin-top: 22px;
+    background-color: #ffffff;
+    color: #1e222b;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.detail-btn:hover {
+    background-color: #f1f5f9;
+}
+
+/* ==========================================
+   TODOS LOS POKÉMONS
+   ========================================== */
+.all-pokemons-section {
+    width: 100%;
+}
+
+.pokemon-grid {
+    display: grid;
+    /* Ajusta dinámicamente las tarjetas ampliadas según la pantalla */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+/* ==========================================
+   ESTADÍSTICAS INDIVIDUALES
+   ========================================== */
+.stats-panel {
+    background-
