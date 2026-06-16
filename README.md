@@ -4,7 +4,7 @@ Aplicación web desarrollada en **Spring Boot** que consume la **PokéAPI** púb
 
 ## Demo En Vivo
 
-**[Prueba la aplicación aquí](https://pokeapi-web.onrender.com)** *(Desplegado en Render con Docker)*
+**[Prueba la aplicación aquí](https://pokeapi-web.onrender.com)** 
 
 ---
 
